@@ -7,6 +7,10 @@
 *.obj
 *.elf
 
+# Build Results
+[Bb]in/
+[Oo]bj/
+
 # Linker output
 *.ilk
 *.map
