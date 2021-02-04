@@ -54,3 +54,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Anything secret will be prefixed with secret
+secret*

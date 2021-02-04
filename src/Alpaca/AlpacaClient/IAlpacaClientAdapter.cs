@@ -1,22 +1,30 @@
 
 
+using System;
+using System.Threading.Tasks;
+using Alpaca.Markets;
+
 namespace MiracleLegumes.Alpaca.AlpacaClient
 {
     interface IAlpacaClientAdapter
     {
         void ListAssets();
 
-        void GetLastQuote(string symbol);
+        Task<ILastQuote> GetLastQuote(string symbol);
 
-        void GetAccountBalance();
+        Task<decimal> GetAccountBalance();
 
         void GetPositions();
 
         void GetPositionBySymbol(string symbol);
 
-        void BuyNSharesOfAsset(string symbol, int quantity);
+        void BuyNSharesOfAssetMarketOrder(string symbol, long quantity);
 
-        void SellNSharesOfAsset(string symbol, int quantity);
+        void BuyNSharesOfAssetLimitOrder(string symbol, decimal limitPrice, long quantity);
+
+        void SellNSharesOfAssetMarketOrder(string symbol, long quantity);
+
+        void SellNSharesOfAssetLimitOrder(string symbol, decimal limitPrice, long quantity);
 
         void SellAllSharesOfAsset(string symbol);
 
